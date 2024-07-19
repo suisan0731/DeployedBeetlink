@@ -6,5 +6,5 @@ export default auth((req) => {
 })
 
 export const config = {
-    matcher: ["/","loggedin"]
+    matcher: ["/","/loggedin"]
 }
