@@ -1,0 +1,151 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"organizeImports": {
+		"enabled": true,
+		"include": ["src"]
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"jsxQuoteStyle": "double",
+			"trailingCommas": "es5",
+			"semicolons": "asNeeded",
+			"enabled": true
+		},
+		"globals": ["_","$"]
+
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignore": ["/node_modules","./next-env.d.ts","next.config.mjs"],
+		"include": ["src"]
+	},
+	"formatter": {
+		"include": ["src"],
+		"formatWithErrors":true,
+		"indentWidth": 2,
+		"indentStyle": "tab",
+		"lineEnding": "crlf",
+		"lineWidth": 80,
+		"attributePosition": "multiline"
+	},
+	"linter": {
+		"enabled": true,
+		"include": ["src"],
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noAccessKey":"off",
+				"noAriaHiddenOnFocusable":"warn",
+				"noAriaUnsupportedElements": "warn",
+				"noAutofocus": "warn",
+				"noBlankTarget": "warn",
+				"noDistractingElements":"error",
+				"noHeaderScope": "warn",
+				"noInteractiveElementToNoninteractiveRole": "warn",
+				"noNoninteractiveElementToInteractiveRole": "error",
+				"noNoninteractiveTabindex": "error",
+				"noPositiveTabindex": "info",
+				"noRedundantAlt": "warn",
+				"noSvgWithoutTitle": "error",
+				"useAltText": "error",
+				"useAnchorContent": "warn",
+				"useAriaActivedescendantWithTabindex": "info",
+				"useAriaPropsForRole": "info",
+				"useButtonType": "error",
+				"useHeadingContent": "error",
+				"useHtmlLang": "error",
+				"useIframeTitle": "error",
+				"useKeyWithClickEvents": "warn",
+				"useKeyWithMouseEvents": "warn",
+				"useMediaCaption": "info",
+				"useValidAnchor": "info",
+				"useValidAriaProps": "info",
+				"useValidAriaRole": "info",
+				"useValidAriaValues": "info",
+				"useValidLang": "warn"
+			},
+			"complexity": {
+				"noBannedTypes": "error",
+				"noEmptyTypeParameters": "error",
+				"noExcessiveCognitiveComplexity": "error",
+				"noExtraBooleanCast": "warn",
+				"noForEach": "error",
+				"noMultipleSpacesInRegularExpressionLiterals": "error",
+				"noUselessCatch": "warn",
+				"noUselessConstructor": "error",
+				"noUselessFragments": "error",
+				"noUselessLoneBlockStatements": "error",
+				"noUselessRename": "error",
+				"noUselessTernary": "warn",
+				"noUselessTypeConstraint": "info",
+				"useArrowFunction": "off",
+				"useLiteralKeys": "error",
+				"useOptionalChain": "warn",
+				"useRegexLiterals": "warn",
+				"useSimpleNumberKeys": "error",
+				"useSimplifiedLogicExpression": "error"
+			},
+			"correctness": {
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "warn",
+				"noChildrenProp": "error",
+				"noConstAssign": "error",
+				"noConstantCondition": "error",
+				"noEmptyPattern": "error",
+				"noGlobalObjectCalls": "info",
+				"noInvalidNewBuiltin": "warn",
+				"noInvalidUseBeforeDeclaration": "error",
+				"noNonoctalDecimalEscape": "warn",
+				"noPrecisionLoss": "error",
+				"noUnreachable":"error",
+				"useArrayLiterals": "warn",
+				"useExhaustiveDependencies":"error",
+				"useHookAtTopLevel": "error",
+				"useJsxKeyInIterable": "error",
+				"useValidForDirection": "error"
+			},
+			"nursery": {
+				"useSortedClasses": "warn"
+			},
+			"style": {
+				"noCommaOperator": "error",
+				"noDefaultExport": "off",
+				"noNamespace": "off",
+				"noParameterAssign": "error",
+				"noVar": "error",
+				"useConsistentArrayType": "off",
+				"useConst": "warn",
+				"useExportType": "info",
+				"useFilenamingConvention": {
+					"level":"warn",
+					"options": {
+						"strictCase": false,
+						"requireAscii": true,
+						"filenameCases": ["PascalCase"]
+					}
+				},
+				"useForOf": "error",
+				"useImportType": "warn",
+				"useTemplate": "error",
+				"useNamingConvention": {
+					"level": "error",
+					"options": {
+						"strictCase": true,
+						"requireAscii": true,
+						"enumMemberCase":"PascalCase",
+						"conventions": [
+							{
+								"formats":["PascalCase"]
+							}
+						]
+					}
+				}
+			}
+		}
+	}
+}
