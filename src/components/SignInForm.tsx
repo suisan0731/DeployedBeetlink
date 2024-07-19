@@ -15,7 +15,7 @@ export function SignIn() {
             await signIn(undefined, { redirectTo: "/loggedin" });
         }}
         >
-        <button type="submit">Sign in</button>
+        <button className="btn" type="submit">Sign in</button>
         </form>
         );
     }
