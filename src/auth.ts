@@ -2,6 +2,7 @@ import { ConvexAdapter } from "./ConvexProvider/index";
 import { SignJWT, importPKCS8 } from "jose";
 import NextAuth, { DefaultSession } from "next-auth";
 import { Doc } from "../convex/_generated/dataModel";
+import Google from "next-auth/providers/google"
 	
 const CONVEX_SITE_URL = process.env.NEXT_PUBLIC_CONVEX_URL!.replace(
   /.cloud$/,
@@ -9,9 +10,14 @@ const CONVEX_SITE_URL = process.env.NEXT_PUBLIC_CONVEX_URL!.replace(
 );
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  debug: true,
+  // debug: true,
   providers: [
-    // ... configured providers
+    Google({
+      client: {
+        client_id: process.env.GOOGLE_CLIENT_ID,
+        client_secret: process.env.GOOGLE_CLIENT_SECRET
+      }
+    })
   ],
   adapter: ConvexAdapter,
   callbacks: {
