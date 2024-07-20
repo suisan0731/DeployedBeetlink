@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@auth/core": "^0.34.1",
+    "@clerk/clerk-react": "^5.2.8",
+    "@clerk/nextjs": "^5.2.4",
     "@convex-dev/auth": "^0.0.38",
     "@spotify/web-api-ts-sdk": "^1.2.0",
     "@types/bcrypt": "^5.0.2",

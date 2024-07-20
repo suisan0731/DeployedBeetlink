@@ -1,11 +1,7 @@
-import {auth} from "@/auth"
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default auth(req => {
-    if(!req.auth){
-        return Response.redirect(new URL("/",req.nextUrl))
-    }
-})
+export default clerkMiddleware();
 
 export const config = {
-    matcher: ["/(loggedin.*)"]
-}
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+};

@@ -11,7 +11,7 @@ import {
   sessionSchema,
   userSchema,
   verificationTokenSchema,
-} from "../src/ConvexProvider/schema"
+} from "../schema"
 
 const adapterQuery = customQuery(query, {
   args: { secret: v.string() },

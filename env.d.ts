@@ -17,7 +17,11 @@ declare module "process" {
                 /** @param SpotifyのAPIを使うためのID */
                 SPOTIFY_CLIENT_ID: string,
                 /** @param SpotifyのAPIを使うための隠しトークン */
-                SPOTIFY_CLIENT_SECRET: string
+                SPOTIFY_CLIENT_SECRET: string,
+                /** @param ClerkのIssuerのURL */
+                CLERK_ISSUER_URL: string,
+                /** @params CLERKのPublish Key */
+                NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: string
             }
         }
     }
