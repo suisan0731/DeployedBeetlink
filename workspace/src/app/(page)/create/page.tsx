@@ -3,11 +3,14 @@
 import React from "react";
 import "../style.css";
 import { useRouter } from "next/navigation";
+import MusicCard from "../../../components/music-card";
+import TopButton from "../../../components/top-button";
 
 const Page = () => {
   // const albumImageUrl: string = "/sample/Himawari.jpg";
   // const musicTitle: string = "Music title";
   // const aritist: string = "Artist name";
+
   let musicUrl = "https://open.spotify.com/embed/track/78W4mTLIh4qoLu92W4IQhO?utm_source=generator&theme=0";
   const router = useRouter();
 
@@ -16,38 +19,10 @@ const Page = () => {
       <div className="flex justify-center px-5 safari-hack w-full">
         <div className="max-w-screen-lg w-full p-8">
 
-          <div className="flex items-center mb-4">
-            <button className="btn btn-ghost hover:bg-transparent " onClick={() => router.back()}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="40px"
-                viewBox="0 -960 960 960"
-                width="40px"
-                fill="#000000"
-              >
-                <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
-              </svg>
-            </button>
-            <h1 className="text-2xl font-bold text-left text-black">
-              投稿作成
-            </h1>
-          </div>
+          <TopButton title="投稿作成" />
           
           {/* 埋め込みカード */}
-          <div className="flex justify-center items-center mb-4">
-            <iframe
-              className="rounded-lg"
-              style={{ borderRadius: '12px' }}
-              src={musicUrl}
-              width="90%"
-              height="170"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title="Spotify Embed"
-            ></iframe>
-           </div>
-
+          <MusicCard musicUrl={musicUrl}/>
 
           {/*　埋め込みではなく、必要情報だけを取得しようとした（断念）
 

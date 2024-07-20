@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from 'react';
-import PlaylistMenu from '../../../compoents/playlist-menu';
+import PlaylistMenu from '../../../components/playlist-menu';
 
 const Page: React.FC = () => {
   useEffect(() => {
@@ -102,7 +102,7 @@ const Page: React.FC = () => {
         flexDirection: "column",
         margin: "5px"
       }}>
-        <img src='./sample/Himawari.jpg' style={{ width: "30%", borderRadius: "10%", marginTop: "10vh" }} alt="サンプル" />
+        <img src='./samplepic/Himawari.jpg' style={{ width: "30%", borderRadius: "10%", marginTop: "10vh" }} alt="サンプル" />
         <p style={{ fontWeight: "bold", fontSize: "30px" }}>プレイリスト名</p>
       </div>
       <div style={{ marginTop: "10px" }}>

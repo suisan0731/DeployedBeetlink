@@ -23,5 +23,4 @@ const NameId:React.FC<NameIdProps> = ({name,id}) => {
     </div>
   )
 }
-
 export default NameId

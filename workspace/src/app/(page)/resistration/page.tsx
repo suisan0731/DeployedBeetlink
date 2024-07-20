@@ -1,7 +1,7 @@
 import React from "react";
-import CustomButton from "../../../compoents/custom-button";
-import EmailPassword from "../../../compoents/e-mail-password";
-import UserName from "../../../compoents/username";
+import CustomButton from "../../../components/custom-button";
+import EmailPassword from "../../../components/e-mail-password";
+import UserName from "../../../components/username";
 
 export default function Home() {
   return (
