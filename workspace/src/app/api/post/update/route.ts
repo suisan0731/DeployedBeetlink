@@ -3,17 +3,11 @@ import { useQuery, useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import convex_client from "@/CovexSubscriptionClient";
 import { Id } from '../../../../../convex/_generated/dataModel';
+import { PostUpdateBody } from '../../body';
 
 
 export async function PUT(request: NextRequest) {
-    const {id,playlist_id,music_id,user_id,comment,like} = await (request.json() as Promise<{
-        id: Id<"post">,
-        comment: Array<Id<"comment">>
-        playlist_id: Id<"playlist">
-        music_id: string
-        user_id: Id<"users">,
-        like: number
-    }>)
+    const {id,playlist_id,music_id,user_id,comment,like} = await (request.json() as Promise<PostUpdateBody>)
 
     const result = await convex_client.mutation(api.post.updatePost,{
         id: id,

@@ -4,8 +4,6 @@ import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import { redirect, useRouter } from "next/navigation";
 import { useStoreUserEffect } from "@/hooks/useStoreUserEffect";
 import AccountView from "@/components/AccountView";
-import { useEffect } from "react";
-
 
 export default function Home() {
 
