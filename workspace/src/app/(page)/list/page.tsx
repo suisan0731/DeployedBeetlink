@@ -3,7 +3,6 @@
 
 import React from "react";
 import IframeCard from "../../../components/ifamecard";
-import "../style.css";
 import { useRouter } from "next/navigation";
 import TopButton from "../../../components/top-button";
 

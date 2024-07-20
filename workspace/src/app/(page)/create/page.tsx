@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import "../style.css";
 import { useRouter } from "next/navigation";
 import MusicCard from "../../../components/music-card";
 import TopButton from "../../../components/top-button";
