@@ -1,7 +1,7 @@
 export default {
     providers: [
         {
-            domain: "https://faithful-mule-5.clerk.accounts.dev",
+            domain: process.env.CLERK_ISSUER_URL!,
             applicationID: "convex",
         },
     ],

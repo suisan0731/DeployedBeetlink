@@ -12,7 +12,7 @@ export default function LoginProvider({
     children: React.ReactNode
 }){
     return  (
-        <ClerkProvider publishableKey="pk_test_ZmFpdGhmdWwtbXVsZS01LmNsZXJrLmFjY291bnRzLmRldiQ">
+        <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
