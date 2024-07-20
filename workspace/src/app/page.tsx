@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import { useConvexAuth } from "convex/react";
+import LoginProvider from "@/compoents/LoginProvider";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { Unauthenticated, Authenticated } from "convex/react";
 
 export default function Home() {
  const { isAuthenticated, isLoading } = useConvexAuth();
