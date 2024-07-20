@@ -26,7 +26,7 @@ export type PlaylistUpdateBody = {
 
 export type PostCreateBody = {
     user_id: Id<"users">,
-    playlist_id: Id<"playlist">,
+    // playlist_id: Id<"playlist">,
     music_id: string
 }
 
@@ -37,7 +37,7 @@ export type PostDeleteBody = {
 export type PostUpdateBody = {
     id: Id<"post">,
     comment: Array<Id<"comment">>
-    playlist_id: Id<"playlist">
+    // playlist_id: Id<"playlist">
     music_id: string
     user_id: Id<"users">,
     like: number
