@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+import "../../globals.css";
+import { couldStartTrivia } from 'typescript';
 import { useRouter } from "next/navigation";
 import TopButton from "../../../components/top-button";
 

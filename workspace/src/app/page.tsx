@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import { useConvexAuth, useQuery } from "convex/react";
@@ -6,6 +6,7 @@ import { api } from "../../convex/_generated/api";
 import { Doc, Id } from '../../convex/_generated/dataModel';
 import { useStoreUserEffect } from "@/hooks/useStoreUserEffect";
 import AccountView from "@/components/AccountView";
+
 
 export default function Home() {
 
