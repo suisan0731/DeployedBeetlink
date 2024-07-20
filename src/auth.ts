@@ -4,6 +4,18 @@ import NextAuth, { DefaultSession } from "next-auth";
 import { Doc } from "../convex/_generated/dataModel";
 import Google from "next-auth/providers/google"
 	
+if (process.env.CONVEX_AUTH_PRIVATE_KEY === undefined) {
+  throw new Error(
+    "Missing CONVEX_AUTH_PRIVATE_KEY Next.js environment variable",
+  );
+}
+
+if (process.env.NEXT_PUBLIC_CONVEX_URL === undefined) {
+  throw new Error(
+    "Missing NEXT_PUBLIC_CONVEX_URL Next.js environment variable",
+  );
+}
+
 const CONVEX_SITE_URL = process.env.NEXT_PUBLIC_CONVEX_URL!.replace(
   /.cloud$/,
   ".site",
