@@ -4,7 +4,6 @@ export type SearchBody = {
     search: string
 }
 
-
 export type PlaylistCreateBody = {
     name: string
     list_id: Id<"playlist">
