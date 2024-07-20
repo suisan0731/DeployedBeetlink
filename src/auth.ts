@@ -9,7 +9,7 @@ const CONVEX_SITE_URL = process.env.NEXT_PUBLIC_CONVEX_URL!.replace(
   ".site",
 );
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+export const { handlers: {GET,POST}, signIn, signOut, auth } = NextAuth({
   // debug: true,
   providers: [
     Google({
