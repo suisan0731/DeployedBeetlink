@@ -6,6 +6,7 @@ import { useConvexAuth } from "convex/react";
 export default function Home() {
  const { isAuthenticated, isLoading } = useConvexAuth();
  const { user } = useUser();
+ console.log(JSON.stringify(user,null,2))
 
  if (isLoading) return <div>Loading...</div>;
 
