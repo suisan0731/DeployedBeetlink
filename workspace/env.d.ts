@@ -5,7 +5,7 @@ declare module "process" {
                 /** @param ConvexのプロジェクトID */
                 CONVEX_DEPLOYMENT: string
                 /** @param ConvexのデプロイURL */
-                CONVEX_URL: string,
+                NEXT_PUBLIC_CONVEX_URL: string,
                 /** @param デプロイ先のURL */
                 CONVEX_SITE_URL: string,
                 /** @param SpotifyのAPIを使うためのID */
@@ -15,7 +15,9 @@ declare module "process" {
                 /** @param ClerkのIssuerのURL */
                 CLERK_ISSUER_URL: string,
                 /** @params CLERKのPublish Key */
-                NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: string
+                NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: string,
+                /** @param ClerkのSecretKey */
+                CLERK_SECRET_KEY: string
             }
         }
     }
