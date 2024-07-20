@@ -23,7 +23,6 @@ export const createPost = mutation({
     /* handlerに渡す引数を指定 (要修正)*/
     args: {
         user_id: v.id("users"),
-        contents: v.string(),
         playlist_id: v.optional(v.id("playlist")), //ここどうするか
         music_id: v.optional(v.string()),   //ここどうするか
         likes: v.number(),
@@ -33,7 +32,6 @@ export const createPost = mutation({
         /* dbにPOST */
         await ctx.db.insert("post", {
             user_id: args.user_id,
-            contents: args.contents,
             playlist_id: args.playlist_id, //ここどうするか
             music_id: args.music_id, //ここどうするか
             likes: args.likes,
@@ -49,7 +47,6 @@ export const updatePost = mutation({
     args: {
         id: v.id("post"),
         user_id: v.id("users"),
-        contents: v.string(),
         playlist_id: v.optional(v.id("playlist")), //ここどうするか
         music_id: v.optional(v.string()),   //ここどうするか
         likes: v.number(),
@@ -59,7 +56,6 @@ export const updatePost = mutation({
         /* dbにPUT */
         await ctx.db.replace(args.id, {
             user_id: args.user_id,
-            contents: args.contents,
             playlist_id: args.playlist_id, //ここどうするか
             music_id: args.music_id, //ここどうするか
             likes: args.likes,

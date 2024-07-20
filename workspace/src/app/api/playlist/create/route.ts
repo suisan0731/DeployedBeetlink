@@ -4,13 +4,12 @@ import { Id } from "../../../../../convex/_generated/dataModel";
 import convex_client from "@/CovexSubscriptionClient";
 
 export async function POST(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const name = searchParams.get("name")
-    const list_id = searchParams.get("list_id") as Id<"playlist">
+    const {name,list_id,ids} = await (request.json() as Promise<{
+        name: string
+        list_id: Id<"playlist">
+        ids: Array<string>
+    }>)
 
-    if (!name || !list_id) {
-        throw new Error("Query was not set.")
-    }
     await convex_client.mutation(api.playlist.UpdateList,{
         ids: [],
         list_id: list_id as Id<"playlist">,

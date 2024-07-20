@@ -6,11 +6,9 @@ import { Id } from "../../../../../convex/_generated/dataModel";
 
 
 export async function DELETE(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const id = searchParams.get("id")
-    if (!id) {
-        throw new Error("Query not set.");
-    }
+    const {id} = await (request.json() as Promise<{
+        id: Id<"post">
+    }>)
     const deletePost = await convex_client.mutation(api.post.deletePost,{id: id as Id<"post">})
     return Response.json({
         status: deletePost.status

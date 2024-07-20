@@ -20,7 +20,6 @@ export default defineSchema({
     }).index("by_likes",["likes"]),
     post: defineTable({
         user_id: v.id("users"),
-        contents: v.string(),
         playlist_id: v.optional(v.id("playlist")),
         music_id: v.optional(v.string()),
         likes: v.number(),

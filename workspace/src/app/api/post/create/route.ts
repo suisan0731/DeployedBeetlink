@@ -5,21 +5,15 @@ import { Id } from "../../../../../convex/_generated/dataModel";
 
 
 export async function POST(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const user_id = searchParams.get("user_id")
-    const contents = searchParams.get("contents")
-    const playlist_id = searchParams.get("playlist_id")
-    const music_id = searchParams.get("music_id")
-
-    if (!(user_id && contents && playlist_id && music_id)) {
-        throw new Error("Query not set.");
-    }
-
+    const {user_id,playlist_id,music_id} = await (request.json() as Promise<{
+        user_id: Id<"users">,
+        playlist_id: Id<"playlist">,
+        music_id: string
+    }>)
 
     const result = await convex_client.mutation(api.post.createPost,{
-        user_id: user_id as Id<"users">,
-        contents: contents,
-        playlist_id: playlist_id as Id<"playlist">,
+        user_id: user_id,
+        playlist_id: playlist_id,
         music_id: music_id,
         comments: [] as Array<Id<"comment">>,
         likes: 0

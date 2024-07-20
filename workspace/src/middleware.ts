@@ -12,10 +12,6 @@ const isProtectedRoute = createRouteMatcher([
   "/show"
 ])
 
-const UnloginRoute = createRouteMatcher([
-  "/"
-])
-
 export default clerkMiddleware((auth,req) => {
   if(isProtectedRoute(req)) auth().protect()
 });
