@@ -2,8 +2,8 @@
 
 import React from 'react';
 import "../style.css"
-import { couldStartTrivia } from 'typescript';
 import { useRouter } from "next/navigation";
+import TopButton from "../../../components/top-button";
 
 const Page = () => {
   let albumImageUrl: string = '/sample/Himawari.jpg';
@@ -19,13 +19,7 @@ const Page = () => {
     <div className="outer-container">
       <div className="flex justify-center px-5 safari-hack w-full">
         <div className="max-w-screen-lg w-full p-8">
-          <div className="flex items-center mb-4">
-            <button className="btn btn-ghost hover:bg-transparent " onClick={() => router.back()}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
-            </button>
-            <h1 className="text-2xl font-bold text-left text-black">投稿</h1>
-          </div>
-
+          <TopButton title="投稿" />
             {/* タイトル */}
             <div className="mb-1">
                 <h2 className="text-left font-bold text-xl">{title}</h2>

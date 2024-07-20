@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from 'react';
-import PlaylistMenu from '../../../compoents/playlist-menu';
-import CustomButton from '../../../compoents/custom-button'
+import PlaylistMenu from '../../../components/playlist-menu';
+import CustomButton from '../../../components/custom-button'
 
 const Page = () => {
 
@@ -10,7 +10,7 @@ const Page = () => {
       <a href='./playlist'>
         <img src="./arrow-image.png" style={{ position: "absolute", top: "5vh", left: "30px" }} alt="戻る"></img>
       </a>
- 
+  
       <p  className='text-center' style={{fontSize:"30px",fontWeight:"bold",marginTop:"10px"}}>編集</p>
       <div style={{
         display: "flex",

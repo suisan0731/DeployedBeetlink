@@ -1,4 +1,4 @@
-import LoginProvider from "@/compoents/LoginProvider";
+import LoginProvider from "@/components/LoginProvider";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Unauthenticated, Authenticated } from "convex/react";
 

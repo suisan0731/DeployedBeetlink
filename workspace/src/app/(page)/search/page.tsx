@@ -8,6 +8,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import TopButton from "../../../components/top-button";
 
 const Page: React.FC = () => {
   const [searchStr, setSearchStr] = useState("");
