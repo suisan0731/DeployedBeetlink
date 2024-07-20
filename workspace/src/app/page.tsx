@@ -13,7 +13,6 @@ export default function Home() {
   const { isAuthenticated, isLoading } = useStoreUserEffect()
   const {user} = useUser()
   if (isLoading) return <div>Loading...</div>;
-  
 
   return (
     <div className="h-screen flex items-center justify-center flex-col gap-y-4">
