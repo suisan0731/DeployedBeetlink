@@ -1,81 +1,41 @@
-import { NextRequest } from "next/server";
-import { useQuery, useMutation } from "convex/react";
-import { api } from "../../../../convex/_generated/api";
-
-
-export async function GET(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const path = request.nextUrl.pathname
-    if (path === "/post") {
-        const res = useQuery(api.post.getPost)
-        return Response.json({
-            lists: res
-        })
-    } else if (path === "/post/search") {
-        const q: string = searchParams.get("q")
-        const res = useQuery(api.post.searchPost, {q: q})
-        return Response.json({
-            post: res
-        })
-    } else {
-        throw new Error("404 not Found.")
-    }
+/*
+    上のメソッド達がうまくいかなかった場合、Reactコンポーネントに直書きする関数たち
+function getPostData() : {
+    user_id: Doc<"users">["_id"],
+    contents: string,
+    playlist_id: string,
+    music_id: string,
+    likes: number,
+    conmments: string[]
+}{
+    return useQuery(api.post.getPost);
 }
 
-export async function POST(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const user_id: string = searchParams.get("user_id")
-    const contents: string = searchParams.get("contents")
-    const playlist_id: string = searchParams.get("playlist_id")
-    const music_id: string = searchParams.get("music_id")
-    const path = request.nextUrl.pathname
-    if (path === "/post") {
-        const res = useMutation(api.post.createPost, {
-            user_id: user_id,
-            contents: contents,
-            playlist_id: playlist_id,
-            music_id: music_id
-        })
-        return Response.json({
-            post: res
-        })
-    }  else {
-        throw new Error("404 not Found.")
-    }
+
+async function createPostData(data: {
+    user_id: string,
+    contents: string,
+    playlist_id: string,
+    music_id: string,
+}) {
+    const createPost = useMutation(api.post.createPost);
+    await createPost(data)
 }
 
-export async function PUT(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const id: string = searchParams.get("id")
-    const contents: string = searchParams.get("contents")
-    const playlist_id: string = searchParams.get("playlist_id")
-    const music_id: string = searchParams.get("music_id")
-    const path = request.nextUrl.pathname
-    if (path === "/post") {
-        const res = useMutation(api.post.updatePost, {
-            id: id,
-            contents: contents,
-            playlist_id: playlist_id,
-            music_id: music_id
-        })
-        return Response.json({
-            post: res
-        })
-    } else  {
-        throw new Error("404 not Found.")
-    }
+async function updatePostData(data: {
+    id: Doc<"post">["_id"],
+    contents: string,
+    playlist_id: string,
+    music_id: string,
+}) {
+    const updatePost = useMutation(api.post.updatePost);
+    await updatePost(data)
 }
 
-export async function DELETE(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams
-    const id: string = searchParams.get("id")
-    const path = request.nextUrl.pathname
-    if (path === "/post") {
-        const res = useMutation(api.post.deletePost, {id: id})
-        return Response.json({
-            post: res
-        })
-    } else {
-        throw new Error("404 not Found.")
-    }
+
+async function deletePostData(id: Doc<"post">["_id"]) {
+    const deletePost = useMutation(api.post.deletePost);
+    await deletePost(id)
 }
+
+*/
