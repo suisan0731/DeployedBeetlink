@@ -8,6 +8,6 @@ export async function POST(request: NextRequest) {
     if(search === null) throw new Error("Query Not Set.")
     const result = await SpotifySDK.search(search,["track"],"JP",5)
     return Response.json({
-        artists: result.tracks.items
+        tracks: result.tracks.items
     })
 }
