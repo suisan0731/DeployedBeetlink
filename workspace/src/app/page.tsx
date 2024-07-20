@@ -1,6 +1,7 @@
 "use client"
+import Account from "@/compoents/AccountView";
 import LoginProvider from "@/compoents/LoginProvider";
-import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignInButton, UserButton, useSession } from "@clerk/clerk-react";
 import { Unauthenticated, Authenticated } from "convex/react";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Authenticated>
         <UserButton />
         <p>test</p>
+        <Account />
       </Authenticated>
     </main>
     </LoginProvider>
