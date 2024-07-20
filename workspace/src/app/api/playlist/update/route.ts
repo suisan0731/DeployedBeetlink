@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 
-export async function GET(request: NextRequest) {
+export async function PUT(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
     const name = searchParams.get("name")
     const ids = searchParams.get("ids")
