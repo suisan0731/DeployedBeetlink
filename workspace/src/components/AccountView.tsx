@@ -1,8 +1,13 @@
 "use client"
 
-import { useSession } from "@clerk/clerk-react"
+import { useQuery } from "convex/react"
+import { api } from "../../convex/_generated/api"
 
-export default function Account(){
-    console.log(useSession())
-    return <></>
+export default function AccountView({user_id}:{user_id: string}){
+    const GetUser = useQuery(api.users.getUser,{id:user_id})
+    return (
+        <>
+            <div></div>
+        </>
+    )
 }

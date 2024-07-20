@@ -1,14 +1,18 @@
 "use client";
 
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import { useConvexAuth } from "convex/react";
+import { useConvexAuth, useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+import { Doc, Id } from '../../convex/_generated/dataModel';
+import { useStoreUserEffect } from "@/hooks/useStoreUserEffect";
+import AccountView from "@/components/AccountView";
 
 export default function Home() {
- const { isAuthenticated, isLoading } = useConvexAuth();
- const { user } = useUser();
- console.log(JSON.stringify(user,null,2))
 
- if (isLoading) return <div>Loading...</div>;
+  const { isAuthenticated, isLoading } = useStoreUserEffect()
+  const {user} = useUser()
+  if (isLoading) return <div>Loading...</div>;
+  
 
   return (
     <div className="h-screen flex items-center justify-center flex-col gap-y-4">
@@ -23,11 +27,14 @@ export default function Home() {
             </button>
           </SignInButton>
         ) : (
+          <>
           <SignOutButton>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               ログアウト
             </button>
           </SignOutButton>
+          <AccountView user_id={user!.id}/>
+          </>
         )}
       </div>
     </div>

@@ -3,13 +3,15 @@ import {v} from "convex/values"
 
 export default defineSchema({
     users: defineTable({
-        auth_id: v.string(),
         name: v.optional(v.string()),
         image: v.optional(v.string()),
         genres: v.array(v.string()),
         top_five_plays: v.array(v.string()),
         playlists: v.array(v.id("playlist")),
-    }),
+        tokenIdentifier: v.string(),
+        user_id: v.string()
+    })
+    .index("by_token",["tokenIdentifier"]),
     playlist: defineTable({
         name: v.string(),
         /* 修正前 music_ids: v.string() */
