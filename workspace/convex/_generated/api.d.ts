@@ -17,6 +17,7 @@ import type {
 import type * as http from "../http.js";
 import type * as playlist from "../playlist.js";
 import type * as post from "../post.js";
+import type * as users from "../users.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -30,6 +31,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   playlist: typeof playlist;
   post: typeof post;
+  users: typeof users;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
