@@ -20,9 +20,15 @@ declare module "process" {
                 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: string,
                 /** @param ClerkのSecretKey */
                 CLERK_SECRET_KEY: string
+                /** @param ログイン後に飛ぶページを決める */
+                NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL: string
+                /** @param サインアップ後に飛ぶページを決める */
+                NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL: string
 
                 /** @param Vercelにデプロイした先の公開URL */
-                NEXT_PUBLIC_VERCEL_URL
+                NEXT_PUBLIC_VERCEL_URL: string
+
+
             }
         }
     }

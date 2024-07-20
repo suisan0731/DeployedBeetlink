@@ -21,7 +21,7 @@ export default function Home() {
       </h1>
       <div className="flex gap-4">
         {!isAuthenticated ? (
-          <SignInButton mode="modal">
+          <SignInButton mode="modal" forceRedirectUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL}>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               ログイン
             </button>
