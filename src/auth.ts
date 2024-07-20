@@ -37,6 +37,11 @@ export const { handlers: {GET,POST}, signIn, signOut, auth } = NextAuth({
         .sign(privateKey);
       return { ...session, convexToken };
     },
+    authorized({auth}) {
+      const isAuthenticated = !!auth?.user;
+
+			return isAuthenticated;
+    }
   },
 });
 
