@@ -1,7 +1,8 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
 export default clerkMiddleware({
-
+  afterSignInUrl: "/list",
+  afterSignUpUrl: "/list",
 });
 
 export const config = {
