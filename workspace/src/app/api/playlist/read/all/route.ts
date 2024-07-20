@@ -5,12 +5,8 @@ import { api } from "../../../../../../convex/_generated/api";
 
 export async function POST(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
-    const id = searchParams.get("id")
     const path = request.nextUrl.pathname
-    if (!id) {
-        throw new Error("Query was not set.")
-    }
-    const res = useQuery(api.playlist.ReadList)
+    const res = useQuery(api.playlist.ReadLists)
     return Response.json({
            lists: res
     })

@@ -1,3 +1,5 @@
+'use client';
+
 import LoginProvider from "@/compoents/LoginProvider";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Unauthenticated, Authenticated } from "convex/react";

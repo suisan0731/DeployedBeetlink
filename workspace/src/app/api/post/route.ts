@@ -1,5 +1,5 @@
 /*
-    上のメソッド達がうまくいかなかった場合、Reactコンポーネントに直書きする関数たち
+    メソッド達がうまくいかなかった場合、Reactコンポーネントに直書きする関数たち
 function getPostData() : {
     user_id: Doc<"users">["_id"],
     contents: string,
