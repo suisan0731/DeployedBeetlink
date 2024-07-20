@@ -1,6 +1,6 @@
 import React from 'react'
-import NameId from '../../../compoents/name-id'
-import PostsView from '../../../compoents/posts-view'
+import NameId from '../../../components/name-id'
+import PostsView from '../../../components/posts-view'
 
 const page = () => {
   return (
