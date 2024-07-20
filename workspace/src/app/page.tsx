@@ -1,7 +1,7 @@
 'use client';
 
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useStoreUserEffect } from "@/hooks/useStoreUserEffect";
 import AccountView from "@/components/AccountView";
 import { useEffect } from "react";
@@ -12,6 +12,8 @@ export default function Home() {
   const { isAuthenticated, isLoading } = useStoreUserEffect()
   const {user} = useUser()
   if (isLoading) return <div>Loading...</div>;
+
+  if(isAuthenticated) {redirect("/list")}
 
   return (
     <div className="h-screen flex items-center justify-center flex-col gap-y-4">
