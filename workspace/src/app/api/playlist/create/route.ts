@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
-import { useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import { Id } from "../../../../../convex/_generated/dataModel";
+import convex_client from "@/CovexSubscriptionClient";
 
 export async function POST(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
@@ -11,13 +11,13 @@ export async function POST(request: NextRequest) {
     if (!name || !list_id) {
         throw new Error("Query was not set.")
     }
-    const updateList = useMutation(api.playlist.UpdateList)
-    const res = await updateList({
-        name: name,    
+    await convex_client.mutation(api.playlist.UpdateList,{
         ids: [],
-        list_id: list_id
+        list_id: list_id as Id<"playlist">,
+        name: name
     })
+
     return Response.json({
-        list: res
+        status: 200
     })
 }

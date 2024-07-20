@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import { useQuery, useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import { Id } from "../../../../../convex/_generated/dataModel";
+import convex_client from "@/CovexSubscriptionClient";
 
 
 export async function DELETE(request: NextRequest) {
@@ -10,9 +11,11 @@ export async function DELETE(request: NextRequest) {
     if (!id) {
         throw new Error("Query was not set.")
     }
-    const deleteList = useMutation(api.playlist.DeleteList)
-    const res = await deleteList({id: id})
+    await convex_client.mutation(api.playlist.DeleteList,{
+        id: id as Id<"playlist">
+    })
+
     return Response.json({
-        list: res
+        status: 200
     })
 }

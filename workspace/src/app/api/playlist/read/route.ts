@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
-import { useQuery } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import { Id } from "../../../../../convex/_generated/dataModel";
+import convex_client from "@/CovexSubscriptionClient";
 
 
 export async function POST(request: NextRequest) {
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     if (!id) {
         throw new Error("Query was not set.")
     }
-    const res = useQuery(api.playlist.ReadList, {id: id})
+    const res = await convex_client.query(api.playlist.ReadList, {id: id})
     return Response.json({
         list: res
     })
