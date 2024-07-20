@@ -1,6 +1,8 @@
 import { NextRequest } from "next/server";
 import { useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
+import convex_client from "@/CovexSubscriptionClient";
+import { Id } from "../../../../../convex/_generated/dataModel";
 
 
 export async function DELETE(request: NextRequest) {
@@ -9,9 +11,8 @@ export async function DELETE(request: NextRequest) {
     if (!id) {
         throw new Error("Query not set.");
     }
-    const deletePost = useMutation(api.post.deletePost)
-    const res = await deletePost({id: id})
+    const deletePost = await convex_client.mutation(api.post.deletePost,{id: id as Id<"post">})
     return Response.json({
-        post: res
+        status: deletePost.status
     })
 }

@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
-import { useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
+import convex_client from "@/CovexSubscriptionClient";
+import { Id } from "../../../../../convex/_generated/dataModel";
 
 
 export async function POST(request: NextRequest) {
@@ -14,14 +15,17 @@ export async function POST(request: NextRequest) {
         throw new Error("Query not set.");
     }
 
-    const create = useMutation(api.post.createPost)
-    const res = await create({
-        user_id: user_id,
+
+    const result = await convex_client.mutation(api.post.createPost,{
+        user_id: user_id as Id<"users">,
         contents: contents,
-        playlist_id: playlist_id,
-        music_id: music_id
+        playlist_id: playlist_id as Id<"playlist">,
+        music_id: music_id,
+        comments: [] as Array<Id<"comment">>,
+        likes: 0
     })
+
     return Response.json({
-        post: res
+        status: result.status
     })
 }
