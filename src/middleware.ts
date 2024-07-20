@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { apiAuthPrefix, publicRoutes, authRoutes, DEFAULT_LOGIN_REDIRECT } from "./route";
 
-export default auth((req: NextAuthRequest) => {
+export default auth(async (req,ctx) => {
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
 
@@ -10,18 +10,18 @@ export default auth((req: NextAuthRequest) => {
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
     if (isApiAuthRoute) {
-        return null;
+        return undefined;
     }
     if (isAuthRoute) {
         if (isLoggedIn) {
             return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
         }
-        return null;
+        return undefined;
     }
     if (!isLoggedIn && !isPublicRoute) {
         return Response.redirect(new URL('/', nextUrl));
     }
-    return null;
+    return undefined;
 });
 
 export const config = {
